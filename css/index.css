@@ -11293,7 +11293,7 @@ h1.page-title + .tag-cloud-list {
   margin-right: 4px;
 }
 #post-info #post-meta .post-meta-label {
-  margin-right: 4px;
+  display: none;
 }
 #post-info #post-meta .post-meta-categories a:not([data-fancybox="gallery"]) {
   font-weight: 500;
