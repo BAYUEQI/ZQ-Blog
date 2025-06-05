@@ -5492,9 +5492,6 @@ body[data-type='about'] #web_bg {
   pointer-events: none;
   z-index: 3;
 }
- {
-  body: 1;
-}
 @-moz-keyframes loading-bar {
   0% {
     width: 0;
