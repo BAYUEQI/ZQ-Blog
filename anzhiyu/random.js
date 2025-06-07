@@ -1,4 +1,4 @@
-var posts=["2025/06/05/新能源与先进储能技术/","2025/06/02/17岁少年登珠峰有感/","2025/04/18/创站！/"];function toRandomPost(){
+var posts=["2025/04/18/创站！/","2025/06/02/17岁少年登珠峰有感/","2025/06/05/新能源与先进储能技术/"];function toRandomPost(){
     pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
   };var friend_link_list=[];
     var refreshNum = 1;
