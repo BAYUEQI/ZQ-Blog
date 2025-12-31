@@ -1510,46 +1510,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     }, 3000);
   }
-  function statistics51aInit() {
-    const loadScript = (url, charset = "UTF-8", crossorigin, id) => {
-      return new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = url;
-        script.async = true;
-        if (id) {
-          script.setAttribute("id", id);
-        }
-        if (charset) {
-          script.setAttribute("charset", charset);
-        }
-        if (crossorigin) {
-          script.setAttribute("crossorigin", crossorigin);
-        }
-        script.onerror = reject;
-        script.onload = script.onreadystatechange = function () {
-          const loadState = this.readyState;
-          if (loadState && loadState !== "loaded" && loadState !== "complete") return;
-          script.onload = script.onreadystatechange = null;
-          resolve();
-        };
-        document.head.appendChild(script);
-      });
-    };
 
-    const scriptUrls = [
-      { url: "https://sdk.51.la/js-sdk-pro.min.js", charset: "UTF-8", crossorigin: false, id: "LA_COLLECT" },
-      { url: "https://sdk.51.la/perf/js-sdk-perf.min.js", crossorigin: "anonymous" },
-    ];
-
-    Promise.all(scriptUrls.map(({ url, charset, crossorigin, id }) => loadScript(url, charset, crossorigin, id)))
-      .then(() => {
-        LA.init({ id: GLOBAL_CONFIG.LA51.ck, ck: GLOBAL_CONFIG.LA51.ck });
-        new LingQue.Monitor().init({ id: GLOBAL_CONFIG.LA51.LingQueMonitorID, sendSuspicious: true });
-      })
-      .catch(error => {
-        console.error("加载51a统计异常，本地加载403是正常情况:", error);
-      });
-  }
 
   function setInputFocusListener() {
     const inputs = document.querySelectorAll("input, textarea");
@@ -1721,8 +1682,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // 欢迎语
     GLOBAL_CONFIG.greetingBox && greetingInit();
-    // 51la统计&灵雀统计
-    GLOBAL_CONFIG.LA51 && statistics51aInit();
+
   };
 
   window.refreshFn = function () {
